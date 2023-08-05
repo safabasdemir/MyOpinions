@@ -1,0 +1,22 @@
+﻿@model List<Post>
+
+
+<div class="mainbar">
+    <div class="article">
+        @for (int i = Model.Count - 1; i >= 0; i--)
+        {
+            <h2>@Model[i].PostTitle</h2>
+            <div class="clr"></div>
+            <div class="img"><img src="~/images/@Model[i].PictureName" width="161" height="192" alt="" class="fl" /></div>
+            <div class="post_content"> </div>
+            <p>@Model[i].PostWrite</p>
+            <a class="big-icon" asp-controller="Admin" asp-action="Edit" asp-area="Management" asp-route-id="@Model[i].ID" style="font-size:25px"><i class="bi bi-pencil-square"></i></a>
+            <a class="big-icon" asp-controller="Admin" asp-action="Delete" asp-area="Management" asp-route-id="@Model[i].ID" style="font-size:25px"><i class="bi bi-x-circle-fill"></i></a>
+            <p class="spec"><a asp-controller="Home" asp-action="ReadMore" asp-area="Management" asp-route-id="@Model[i].ID" class="rm">Read more</a></p>
+
+        }
+
+        <div class="clr"></div>
+    </div>
+    <p class="pages"><small>Page 1 of 2</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
+</div>

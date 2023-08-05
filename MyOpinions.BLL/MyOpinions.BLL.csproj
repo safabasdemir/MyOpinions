@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyOpinions.DAL\MyOpinions.DAL.csproj" />
+    <ProjectReference Include="..\MyOpinions.MODEL\MyOpinions.MODEL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RepositoryPattern\Concrete\" />
+  </ItemGroup>
+
+</Project>

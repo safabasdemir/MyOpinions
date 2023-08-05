@@ -1,0 +1,30 @@
+﻿@model (Post post, List<Category> categories)
+ 
+<form asp-controller="Admin" asp-action="CreatePost" asp-area="Management" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="post.PostTitle">Title</label>
+        <input type="text" class="form-control" asp-for="post.PostTitle" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="post.PostWrite">Post</label>
+        <textarea rows="10" wrap="soft" asp-for="post.PostWrite" class="form-control"></textarea>
+    </div>
+    @*<div class="mb-3">
+        <label class="form-label" asp-for="post.CategoryID">Category</label>
+        <select asp-for="post.CategoryID" asp-items="@(new SelectList(Model.categories,"ID","CategoryName"))"></select>
+
+    </div>*@
+
+    <div class="mb-3">
+
+        <label asp-for="post.Dosya">Picture</label>
+        <input type="file" asp-for="post.Dosya" class="form-control" />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+
+</form>

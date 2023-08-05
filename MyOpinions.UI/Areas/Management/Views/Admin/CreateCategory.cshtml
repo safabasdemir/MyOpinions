@@ -1,0 +1,13 @@
+﻿@model Category
+
+
+<form method="post" asp-controller="Admin" asp-action="CreateCategory" asp-area="Management">
+    <div class="mb-3">
+        <label class="form-label" asp-for="CategoryName">Category Name</label>
+        <input type="text" class="form-control" asp-for="CategoryName"/>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+
+</form>
