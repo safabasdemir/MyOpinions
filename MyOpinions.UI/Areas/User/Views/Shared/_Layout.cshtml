@@ -1,0 +1,66 @@
+﻿
+<html>
+
+<head>
+    <title>FlowerBox</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/css/coin-slider.css" />
+    <script type="text/javascript" src="~/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="~/js/droid_sans_400-droid_sans_700.font.js"></script>
+    <script type="text/javascript" src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+    <script type="text/javascript" src="~/js/coin-slider.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="header_resize">
+                <div class="menu_nav">
+                    <ul>
+                        <li class="active"><a asp-controller="Home" asp-action="Index" asp-area="User"><span>Home Page</span></a></li>
+                        <li><a asp-controller="Physics" asp-action="Index" asp-area="User"><span>Physics</span></a></li>
+                        <li><a asp-controller="Opinion" asp-action="Index" asp-area="User"><span>Opinions</span></a></li>
+                        <li><a asp-controller="Abouth" asp-action="Index" asp-area="User"><span>Abouth</span></a></li>
+                        <li><a asp-controller="ContactUs" asp-action="Index" asp-area="User"><span>Contact Us</span></a></li>
+                        
+                    </ul>
+                </div>
+                <div class="logo">
+                    <h1><a asp-controller="Home" asp-action="Index" asp-area="User">My<span>Opinion</span></a></h1>
+                </div>
+                <div class="clr"></div>
+          
+               @await Component.InvokeAsync("SliderList")
+                
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_resize">
+                @RenderBody()
+                <div class="sidebar">
+                    <div class="gadget">
+                        <h2 class="star"><span>Categories</span></h2>
+                        <div class="clr"></div>
+                        <ul class="sb_menu">
+                            <li><a asp-controller="Physics" asp-action="Index" asp-area="User">Physics</a></li>
+                            <li><a asp-controller="Opinion" asp-action="Index" asp-area="User">Opinions</a></li>
+                            <li><a asp-controller="Abouth" asp-action="Index" asp-area="User">Abouth</a></li>
+                            <li><a asp-controller="ContactUs" asp-action="Index" asp-area="User">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+
+                   @await Component.InvokeAsync("GadgetList")
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
