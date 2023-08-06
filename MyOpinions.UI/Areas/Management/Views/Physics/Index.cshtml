@@ -1,11 +1,22 @@
-﻿
-<div class="article">
-          <h2>BaşlıkADı</h2>
-          <div class="clr"></div>
-          <div class="img"><img src="~/images/img1.jpg" width="161" height="192" alt="" class="fl" /></div>
-          <div class="post_content">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. <a href="#">Suspendisse bibendum. Cras id urna.</a> Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna. In tristique orci porttitor ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo.</p>
-            <p class="spec"><a href="#" class="rm">Read more</a></p>
-          </div>
-          <div class="clr"></div>
+﻿@model List<Post>
+
+
+<div class="mainbar">
+    <div class="article">
+        @for (int i = Model.Count - 1; i >= 0; i--)
+        {
+            <h2>@Model[i].PostTitle</h2>
+            <div class="clr"></div>
+            <div class="img"><img src="~/images/@Model[i].PictureName" width="161" height="192" alt="" class="fl" /></div>
+            <div class="post_content"> </div>
+            <p class="yazi-yasla">@Model[i].PostWrite</p>
+            <a class="big-icon" asp-controller="Admin" asp-action="Edit" asp-area="Management" asp-route-id="@Model[i].ID" style="font-size:25px"><i class="bi bi-pencil-square"></i></a>
+            <a class="big-icon" asp-controller="Admin" asp-action="Delete" asp-area="Management" asp-route-id="@Model[i].ID" style="font-size:25px"><i class="bi bi-x-circle-fill"></i></a>
+            <p class="spec"><a asp-controller="Physics" asp-action="ReadMore" asp-area="Management" asp-route-id="@Model[i].ID" class="rm">Read more</a></p>
+
+        }
+
+        <div class="clr"></div>
+    </div>
+    <p class="pages"><small>Page 1 of 2</small> <span>1</span> <a href="#">2</a> <a href="#">&raquo;</a></p>
 </div>

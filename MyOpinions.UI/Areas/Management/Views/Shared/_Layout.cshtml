@@ -31,40 +31,36 @@
                     </ul>
                 </div>
                 <div class="logo">
-                    <h1><a href="index.html">My<span>Opinion</span></a></h1>
+                    <h1><a asp-controller="Home" asp-action="Index" asp-area="Management">My<span>Opinion</span></a></h1>
                 </div>
                 <div class="clr"></div>
-
-                <partial name="~/Areas/Management/Views/Shared/Partials/_SliderPartial.cshtml" />
-
-
-
+          
+                @await Component.InvokeAsync("ListPost")
+                
             </div>
-
-
         </div>
-        test
         <div class="content">
-            <div class="content_resize" >
+            <div class="content_resize">
                 @RenderBody()
                 <div class="sidebar">
                     <div class="gadget">
-                        <h2 class="star"><span>Sidebar</span> Menu</h2>
+                        <h2 class="star"><span>Categories</span></h2>
                         <div class="clr"></div>
                         <ul class="sb_menu">
-                            <li><a href="#">Physics</a></li>
-                            <li><a href="#">Opinions</a></li>
-                            <li><a href="#">Abouth</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a asp-controller="Physics" asp-action="Index" asp-area="Management">Physics</a></li>
+                            <li><a asp-controller="Opinions" asp-action="Index" asp-area="Management">Opinions</a></li>
+                            <li><a asp-controller="Abouth" asp-action="Index" asp-area="Management">Abouth</a></li>
+                            <li><a asp-controller="ContactUs" asp-action="Index" asp-area="Management">Contact Us</a></li>
                         </ul>
                     </div>
+                    
 
-                    <partial name="~/Areas/Management/Views/Shared/Partials/_GadgetPartial.cshtml" />
+                    @await Component.InvokeAsync("ListPostGadget")
+                    
                 </div>
             </div>
         </div>
     </div>
-
 
 </body>
 </html>

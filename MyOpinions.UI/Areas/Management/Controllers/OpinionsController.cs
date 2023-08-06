@@ -18,10 +18,15 @@ namespace MyOpinions.UI.Areas.Management.Controllers
         public IActionResult Index()
         {
 
-            List<Post> posts = _db.Posts.Where(x => x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
+            List<Post> posts = _db.Posts.Where(x => x.CategoryID == 2 && x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
 
             return View(posts);
 
+        }
+        public IActionResult ReadMore(int id)
+        {
+            var deger = _db.Posts.Where(x => x.ID == id).ToList();
+            return View(deger);
         }
 
 
