@@ -4,15 +4,14 @@ using MyOpinions.MODEL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyOpinions.UI.Areas.Management.Controllers
+namespace MyOpinions.UI.Areas.User.Controllers
 {
-    
-    [Area("Management")]
-    public class AbouthController : Controller
+    [Area("User")]
+    public class HomeController : Controller
     {
-        
+
         MyDbContext _db;
-        public AbouthController(MyDbContext db)
+        public HomeController(MyDbContext db)
         {
             _db = db;
         }
@@ -23,6 +22,12 @@ namespace MyOpinions.UI.Areas.Management.Controllers
 
             return View(posts);
 
+        }
+
+        public IActionResult ReadMore(int id)
+        {
+            var deger = _db.Posts.Where(x => x.ID == id).ToList();
+            return View(deger);
         }
     }
 }
