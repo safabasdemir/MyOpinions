@@ -19,7 +19,7 @@ namespace MyOpinions.UI.Areas.Management.Controllers
         }
         public IActionResult Index()
         {
-            // test view component
+            
             List<Post> posts = _db.Posts.Where(x=> x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
             
             return View(posts);
