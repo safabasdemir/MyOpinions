@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MyOpinions.UI.Areas.Management.Controllers
 {
-    //
+    
     [Area("Management")]
     public class AbouthController : Controller
     {
