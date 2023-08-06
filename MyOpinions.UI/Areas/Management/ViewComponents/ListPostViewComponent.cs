@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace MyOpinions.UI.Areas.Management.ViewComponents
 {
+    [Area("Management")]
     public class ListPostViewComponent : ViewComponent
     {
         MyDbContext _db;

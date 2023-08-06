@@ -4,13 +4,13 @@ using MyOpinions.MODEL.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MyOpinions.UI.Areas.Management.ViewComponents
+namespace MyOpinions.UI.Areas.User.ViewComponents
 {
-    [Area("Management")]
-    public class ListPostGadgetViewComponent:ViewComponent
+    [Area("User")]
+    public class SliderListViewComponent:ViewComponent
     {
         MyDbContext _db;
-        public ListPostGadgetViewComponent(MyDbContext db)
+        public SliderListViewComponent(MyDbContext db)
         {
             _db = db;
         }
@@ -19,7 +19,7 @@ namespace MyOpinions.UI.Areas.Management.ViewComponents
 
             List<Post> posts = _db.Posts.Where(x => x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
 
-            return View("Gadget", posts);
+            return View("SliderList", posts);
         }
     }
 }
