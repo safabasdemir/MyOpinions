@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyOpinions.DAL.Context;
 using MyOpinions.MODEL.Entities;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ namespace MyOpinions.UI.Areas.Management.Controllers
 {
     
     [Area("Management")]
+    [Authorize(Policy = "AdminPolicy")]
     public class AbouthController : Controller
     {
         

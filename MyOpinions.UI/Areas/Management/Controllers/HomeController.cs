@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MyOpinions.BLL.RepositoryPattern.Interfaces;
 using MyOpinions.DAL.Context;
 using MyOpinions.MODEL.Entities;
 using System;
@@ -8,19 +10,22 @@ using System.Linq;
 namespace MyOpinions.UI.Areas.Management.Controllers
 {
     [Area("Management")]
+    [Authorize(Policy = "AdminPolicy")]
 
-      
+
     public class HomeController : Controller
     {
-        MyDbContext _db;
-        public HomeController(MyDbContext db)
+        
+		IRepository<Post> _repoPost;
+        public HomeController(IRepository<Post> repoPost)
         {
-            _db = db;
+           
+            _repoPost = repoPost;
         }
         public IActionResult Index()
         {
             
-            List<Post> posts = _db.Posts.Where(x=> x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
+            List<Post> posts = _repoPost.GetActives();
             
             return View(posts);
 
@@ -28,8 +33,10 @@ namespace MyOpinions.UI.Areas.Management.Controllers
 
         public IActionResult ReadMore(int id)
         {
-            var deger = _db.Posts.Where(x => x.ID == id).ToList();
-            return View(deger);
+            Post post = _repoPost.GetById(id);
+
+
+            return View(post);
         }
 
         

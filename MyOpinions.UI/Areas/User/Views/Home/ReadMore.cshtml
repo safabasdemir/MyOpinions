@@ -1,11 +1,11 @@
-﻿@model List<Post>
+﻿@model Post
 
 
-@foreach (var x in Model)
-{
-    <img src="~/images/@x.PictureName" width="500" height="300" alt="" class="fl" />
-    <h3>@x.PostTitle</h3>
-    <p>@x.PostWrite</p>
+<div class="mainbar">
+    <div class="article">
+        <img src="~/images/@Model.PictureName" width="500" height="300" alt="" class="fl" />
+        <h3>@Model.PostTitle</h3>
+        <p class="yazi-duzelt">@Html.Raw(@Model.PostWrite.Replace("\n", "<br>"))</p>
+    </div>
 
-
-}
+</div>

@@ -47,6 +47,28 @@ namespace MyOpinions.DAL.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CreatedDate = new DateTime(2023, 8, 9, 23, 6, 1, 865, DateTimeKind.Local).AddTicks(3711),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "123",
+                            Role = 0,
+                            Status = 0,
+                            UserName = "admin"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            CreatedDate = new DateTime(2023, 8, 9, 23, 6, 1, 866, DateTimeKind.Local).AddTicks(6358),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Password = "1234",
+                            Role = 1,
+                            Status = 0,
+                            UserName = "safa"
+                        });
                 });
 
             modelBuilder.Entity("MyOpinions.MODEL.Entities.Category", b =>
@@ -132,42 +154,6 @@ namespace MyOpinions.DAL.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("MyOpinions.MODEL.Entities.UserDetail", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AppUserID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("AppUserID")
-                        .IsUnique();
-
-                    b.ToTable("UserDetails");
-                });
-
             modelBuilder.Entity("MyOpinions.MODEL.Entities.Post", b =>
                 {
                     b.HasOne("MyOpinions.MODEL.Entities.Category", "Category")
@@ -177,22 +163,6 @@ namespace MyOpinions.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MyOpinions.MODEL.Entities.UserDetail", b =>
-                {
-                    b.HasOne("MyOpinions.MODEL.Entities.AppUser", "AppUser")
-                        .WithOne("UserDetail")
-                        .HasForeignKey("MyOpinions.MODEL.Entities.UserDetail", "AppUserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
-                });
-
-            modelBuilder.Entity("MyOpinions.MODEL.Entities.AppUser", b =>
-                {
-                    b.Navigation("UserDetail");
                 });
 
             modelBuilder.Entity("MyOpinions.MODEL.Entities.Category", b =>
