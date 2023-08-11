@@ -9,7 +9,7 @@
             <div class="clr"></div>
             <div class="img"><img src="~/images/@Model[i].PictureName" width="161" height="192" alt="" class="fl" /></div>
             <div class="post_content"> </div>
-            <p class="yazi-yasla">@Model[i].PostWrite</p>
+            <p class="yazi-duzelt">@Html.Raw(@Model[i].PostWrite.Replace("\n", "<br>"))</p>
             
             <p class="spec"><a asp-controller="Physics" asp-action="ReadMore" asp-area="User" asp-route-id="@Model[i].ID" class="rm">Read more</a></p>
 

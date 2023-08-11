@@ -9,8 +9,4 @@
     <ProjectReference Include="..\MyOpinions.MODEL\MyOpinions.MODEL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="RepositoryPattern\Concrete\" />
-  </ItemGroup>
-
 </Project>

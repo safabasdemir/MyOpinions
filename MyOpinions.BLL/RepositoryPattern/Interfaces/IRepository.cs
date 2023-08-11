@@ -29,5 +29,7 @@ namespace MyOpinions.BLL.RepositoryPattern.Interfaces
         List<T> SelectActivesByLimit(int count);
 
         T Default(Expression<Func<T, bool>> exp);
+
+        
     }
 }

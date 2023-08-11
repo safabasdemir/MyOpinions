@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyOpinions.DAL.Initializer;
 using MyOpinions.MODEL.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,13 @@ namespace MyOpinions.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            DataInitializer.Seed(modelBuilder);
         }
 
 
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<Category> Categories { get; set; }
 
 

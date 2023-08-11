@@ -24,8 +24,10 @@ namespace MyOpinions.UI.Areas.User.Controllers
         }
         public IActionResult ReadMore(int id)
         {
-            var deger = _db.Posts.Where(x => x.ID == id).ToList();
-            return View(deger);
+            Post post = _db.Posts.Find(id);
+
+
+            return View(post);
         }
     }
     

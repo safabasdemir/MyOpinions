@@ -14,10 +14,5 @@ namespace MyOpinions.MODEL.Entities
         
         public Role Role { get; set; }
 
-        //Relational Property
-
-        
-        public virtual UserDetail UserDetail { get; set; }
-
     }
 }

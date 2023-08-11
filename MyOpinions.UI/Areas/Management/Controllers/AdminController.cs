@@ -8,11 +8,13 @@ using Microsoft.AspNetCore.Hosting;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyOpinions.UI.Areas.Management.Controllers
 {
     [Area("Management")]
-   
+    [Authorize(Policy ="AdminPolicy")]
+
     public class AdminController : Controller
     {
         MyDbContext _db;
@@ -23,11 +25,11 @@ namespace MyOpinions.UI.Areas.Management.Controllers
         public IActionResult Index()
         {
 
-            List<Post> posts = _db.Posts.Where(x => x.Status != MODEL.Enums.DataStatus.Deleted).ToList();
+            
 
-            return View(posts);
+            return View();
 
-        }
+        }  
 
 
         public IActionResult CreateCategory()

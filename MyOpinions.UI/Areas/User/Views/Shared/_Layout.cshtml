@@ -27,6 +27,16 @@
                         <li><a asp-controller="Opinion" asp-action="Index" asp-area="User"><span>Opinions</span></a></li>
                         <li><a asp-controller="Abouth" asp-action="Index" asp-area="User"><span>Abouth</span></a></li>
                         <li><a asp-controller="ContactUs" asp-action="Index" asp-area="User"><span>Contact Us</span></a></li>
+                        @if (User.Identity.IsAuthenticated == false)
+                        {
+                            <li><a asp-controller="Auth" asp-action="Login" asp-area="User"><span>Sing In</span></a></li>
+                        }
+                        @if(User.Identity.IsAuthenticated){
+
+                            <li><a asp-controller="Auth" asp-action="LogOut" asp-area="User"><span>LogOut</span></a></li>
+                        }
+                        
+
                         
                     </ul>
                 </div>
